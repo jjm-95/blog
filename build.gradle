@@ -27,7 +27,7 @@ repositories {
 dependencies {
 	// Spring Boot Starters (기본적인 기능 제공)
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'   // 모니터링 및 관리 도구
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'    // JPA 사용을 위한 데이터베이스 연동
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'    // JPA 사용을 위한 데이터베이스 연동
 //	implementation 'org.springframework.boot:spring-boot-starter-security'    // 보안 기능 제공
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'   // Thymeleaf 템플릿 엔진 사용
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
@@ -46,8 +46,9 @@ dependencies {
 	// Development Tools (개발 편의성 제공)
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	// Database Driver (MySQL 데이터베이스 연동)
+	// Database Driver (데이터베이스 연동)
 //	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'com.h2database:h2'
 
 	// Provided Runtime (Tomcat 애플리케이션 서버)
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
