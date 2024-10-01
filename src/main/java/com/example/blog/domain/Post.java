@@ -18,13 +18,15 @@ public class Post {
     @Column(length = 500, nullable = false) // 길이는 500, null 불허
     private String title;
     
-    @Column(columnDefinition = "TEXT", nullable = false) // Text로 정의, null 불허
+    @Column(columnDefinition = "TEXT", nullable = false)// Text로 정의, null 불허
+    private String content;
+
     private String author;
 
-    @Builder
+    @Builder // Builder 패턴을 만들기 위한 어노테이션
     public Post(String title, String content, String author){
         this.title = title;
-        this.author = content;
+        this.content = content;
         this.author = author;
     } // Post
 
