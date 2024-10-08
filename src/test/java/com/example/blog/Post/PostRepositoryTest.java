@@ -3,7 +3,6 @@ package com.example.blog.Post;
 
 import com.example.blog.domain.Post;
 import com.example.blog.domain.PostRepository;
-import org.aspectj.lang.annotation.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

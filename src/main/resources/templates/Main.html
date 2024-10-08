@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each= "i : ${members}">
+        <p th:text="${i.memberNum}">멤버번호</p>
+        <p th:text="${i.id}">멤버번호</p>
+        <p th:text="${i.password}">멤버번호</p>
+        <p th:text="${i.nickname}">멤버번호</p>
+        <hr>
+    </div>
+</body>
+</html>

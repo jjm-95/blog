@@ -3,20 +3,24 @@ package com.example.blog.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@Entity
+
 @Data
+@NoArgsConstructor
+@Entity
 public class Member {
 
     @Id // pk 어노테이션
     @GeneratedValue(strategy = GenerationType.IDENTITY) // pk의 생성 규칙
     private Long memberNum;
 
-    @Column(length = 30, nullable = false)
+    @Column(length = 30, nullable = false, unique = true)
     @Size(min = 5, message = "ID는 최소 8자 이상이어야 합니다.")
     private String id;
 
@@ -28,7 +32,7 @@ public class Member {
     @Size(min = 8, message = "패스워드는 최소 8자 이상이어야 합니다.")
     private String password;
 
-    @Column(length = 30, nullable = false)
+    @Column(length = 30, nullable = false, unique = true)
     @Size(min = 2, message = "닉네임은 최소 2자 이상이어야 합니다.")
     private String nickname;
 
@@ -54,5 +58,12 @@ public class Member {
     public void updateLastLoginDate(){
         this.lastLoginDate = LocalDateTime.now();
     } // 로그인 시 로그인 일자 업데이트를 위한 메소드 작성
+
+    @Builder // Builder 패턴을 만들기 위한 어노테이션
+    public Member(String id, String password, String nickname){
+        this.id = id;
+        this.password = password;
+        this.nickname = nickname;
+    } // Member Builder
 
 } // Member
