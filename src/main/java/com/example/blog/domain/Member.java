@@ -51,7 +51,13 @@ public class Member {
 
     @Temporal(TemporalType.TIMESTAMP) 
     @Column(updatable = false)
-    private Date registDate; // 가입시 한번만 적용, 업데이트 불가
+    private LocalDateTime registDate; // 가입시 한번만 적용, 업데이트 불가
+
+    // 엔티티가 처음 저장될 때 자동으로 실행
+    @PrePersist
+    protected void onCreate(){
+        this.registDate = LocalDateTime.now(); // 현재 시간을 등록
+    }
 
     private LocalDateTime lastLoginDate;
 
