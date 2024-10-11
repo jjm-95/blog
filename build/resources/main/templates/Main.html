@@ -8,12 +8,45 @@
     <title>Title</title>
 </head>
 <body>
-    <div th:each= "i : ${members}">
-        <p th:text="${i.memberNum}">멤버번호</p>
-        <p th:text="${i.id}">멤버번호</p>
-        <p th:text="${i.password}">멤버번호</p>
-        <p th:text="${i.nickname}">멤버번호</p>
-        <hr>
+<a href="/regist">가입하기</a>
+
+    <div class="card" th:each= "i : ${members}">
+        <form>
+            <p th:text="${i.memberNum}">멤버번호</p>
+            <p th:text="${i.id}">아이디</p>
+            <p th:text="${i.password}">비밀번호</p>
+            <p th:text="${i.nickname}">닉네임</p>
+            <button type="button" th:onclick="'submitDelete(this,' + ${i.memberNum} + ')'">삭제</button>
+        </form>
     </div>
+    <hr>
 </body>
+    <script>
+            function submitDelete(button, memberNum) {
+                fetch('/deleteMember/'+ memberNum, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        // 필요한 데이터가 있다면 여기에 추가
+                    })
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log('데이터 가져오기 성공:', data);
+                    // 여기서 적절한 처리를 수행합니다.
+
+                   const card = button.closest('.card'); // 클릭된 버튼의 상위 .card 요소 찾기
+                    if (card) {
+                        card.remove(); // .card 요소 제거
+                        alert(memberNum, card);
+                    }
+                })
+                .catch(error => {
+                    console.error('데이터 가져오기 실패:', error);
+                    // 실패 시 처리를 수행합니다.
+                });
+            }
+    </script>
 </html>

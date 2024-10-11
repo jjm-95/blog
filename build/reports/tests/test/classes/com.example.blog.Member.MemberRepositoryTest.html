@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.197s</div>
+<div class="counter">1.183s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,9 +79,9 @@
 </tr>
 </thead>
 <tr>
-<td class="success">SaveMember Service 기능 fail 테스트</td>
-<td class="success">failedMemberSaveService()</td>
-<td class="success">1.197s</td>
+<td class="success">Delete Member 테스트</td>
+<td class="success">deleteMember()</td>
+<td class="success">1.183s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -89,8 +89,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>16:48:01.481 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.blog.Member.MemberRepositoryTest]: MemberRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-16:48:01.717 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.blog.BlogApplication for test class com.example.blog.Member.MemberRepositoryTest
+<pre>15:33:32.897 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.blog.Member.MemberRepositoryTest]: MemberRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:33:33.054 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.blog.BlogApplication for test class com.example.blog.Member.MemberRepositoryTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -101,37 +101,29 @@
 
  :: Spring Boot ::                (v3.3.3)
 
-2024-10-10T16:48:02.306+09:00  INFO 18204 --- [blog] [    Test worker] c.e.blog.Member.MemberRepositoryTest     : Starting MemberRepositoryTest using Java 17.0.10 with PID 18204 (started by jjm in C:\Users\jjm\IdeaProjects\study\blog)
-2024-10-10T16:48:02.306+09:00  INFO 18204 --- [blog] [    Test worker] c.e.blog.Member.MemberRepositoryTest     : The following 1 profile is active: &quot;dev&quot;
-2024-10-10T16:48:04.019+09:00  INFO 18204 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-10-10T16:48:04.113+09:00  INFO 18204 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 2 JPA repository interfaces.
-2024-10-10T16:48:05.071+09:00  INFO 18204 --- [blog] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-10-10T16:48:05.212+09:00  INFO 18204 --- [blog] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-10-10T16:48:05.275+09:00  INFO 18204 --- [blog] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-10-10T16:48:05.729+09:00  INFO 18204 --- [blog] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-10-10T16:48:05.776+09:00  INFO 18204 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-10T16:48:05.886+09:00  INFO 18204 --- [blog] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test user=SA
-2024-10-10T16:48:05.886+09:00  INFO 18204 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-10T16:48:07.284+09:00  INFO 18204 --- [blog] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-11T15:33:33.674+09:00  INFO 28460 --- [blog] [    Test worker] c.e.blog.Member.MemberRepositoryTest     : Starting MemberRepositoryTest using Java 17.0.10 with PID 28460 (started by jjm in C:\Users\jjm\IdeaProjects\study\blog)
+2024-10-11T15:33:33.674+09:00  INFO 28460 --- [blog] [    Test worker] c.e.blog.Member.MemberRepositoryTest     : The following 1 profile is active: &quot;dev&quot;
+2024-10-11T15:33:35.339+09:00  INFO 28460 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-11T15:33:35.479+09:00  INFO 28460 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 2 JPA repository interfaces.
+2024-10-11T15:33:36.452+09:00  INFO 28460 --- [blog] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-11T15:33:36.578+09:00  INFO 28460 --- [blog] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-11T15:33:36.641+09:00  INFO 28460 --- [blog] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-11T15:33:37.205+09:00  INFO 28460 --- [blog] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-11T15:33:37.243+09:00  INFO 28460 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-11T15:33:37.409+09:00  INFO 28460 --- [blog] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test user=SA
+2024-10-11T15:33:37.409+09:00  INFO 28460 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-11T15:33:38.562+09:00  INFO 28460 --- [blog] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: alter table if exists post alter column content set data type TEXT
-2024-10-10T16:48:07.347+09:00  INFO 18204 --- [blog] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-10-10T16:48:08.022+09:00  WARN 18204 --- [blog] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-10-10T16:48:09.328+09:00  INFO 18204 --- [blog] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test'
-2024-10-10T16:48:09.437+09:00  INFO 18204 --- [blog] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2024-10-10T16:48:09.547+09:00  INFO 18204 --- [blog] [    Test worker] c.e.blog.Member.MemberRepositoryTest     : Started MemberRepositoryTest in 7.61 seconds (process running for 9.594)
-ID의 길이는 8자 이상, 30자 이하여야 합니다.
-password 설정되었습니다.
-nickName 설정되었습니다.
-계정 설정을 실패했습니다.
-ID가 설정되었습니다.
-비번이 양식이 이상함
-nickName 설정되었습니다.
-계정 설정을 실패했습니다.
+2024-10-11T15:33:38.609+09:00  INFO 28460 --- [blog] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-11T15:33:39.246+09:00  WARN 28460 --- [blog] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-11T15:33:40.385+09:00  INFO 28460 --- [blog] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test'
+2024-10-11T15:33:40.464+09:00  INFO 28460 --- [blog] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-10-11T15:33:40.558+09:00  INFO 28460 --- [blog] [    Test worker] c.e.blog.Member.MemberRepositoryTest     : Started MemberRepositoryTest in 7.284 seconds (process running for 9.0)
 Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date from member m1_0
-ID가 설정되었습니다.
-password 설정되었습니다.
-nickName 양식이 이상함
-계정 설정을 실패했습니다.
+Hibernate: insert into member (id,last_login_date,name,nickname,password,phone_num,regist_date,member_num) values (?,?,?,?,?,?,?,default)
+Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date from member m1_0
+Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date from member m1_0
+Hibernate: delete from member where member_num=?
 Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date from member m1_0
 Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date from member m1_0
 Hibernate: delete from member where member_num=?
@@ -148,7 +140,7 @@ Hibernate: ALTER TABLE MEMBER ALTER COLUMN member_Num RESTART WITH 1
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10.1</a> at 2024. 10. 10. 오후 4:48:10</p>
+<a href="http://www.gradle.org">Gradle 8.10.1</a> at 2024. 10. 11. 오후 3:33:41</p>
 </div>
 </div>
 </body>

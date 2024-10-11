@@ -50,12 +50,18 @@ public class MemberRepositoryTest {
                 .password(password)
                 .nickname(nickname).build();
 
+        List<Member> memberList1 = memberRepository.findAll();
+
         memberRepository.save(member);
 
-        List<Member> memberList = memberRepository.findAll();
+        List<Member> memberList2 = memberRepository.findAll();
 
-        Member memberAssert = memberList.get(0);
-        assertThat(memberList.size()).isGreaterThan(0);
+        int compareSize = memberList2.size() - memberList1.size();
+
+        assertThat(compareSize).isEqualTo(1L);
+
+//        Member memberAssert = memberList2.get(memberList2.size()-1);
+        Member memberAssert = memberList2.get(0);
         assertThat(memberAssert.getId()).isEqualTo(id);
         assertThat(memberAssert.getPassword()).isEqualTo(password);
         assertThat(memberAssert.getNickname()).isEqualTo(nickname);
@@ -82,6 +88,7 @@ public class MemberRepositoryTest {
     @Test
     @DisplayName("SaveMember Service 기능 fail 테스트 ")
     public void failedMemberSaveService(){
+        // id failed
         String id1 = "dddd123";
         String password1 = "!Abc12345";
         String nickname1 = "ServiceTest";
@@ -93,6 +100,7 @@ public class MemberRepositoryTest {
 
         memberService.saveMember(member1.getId(), member1.getPassword(), member1.getNickname());
 
+        // password failed
         String id2 = "dddd1234";
         String password2 = "!abc12345";
         String nickname2 = "ServiceTest";
@@ -104,6 +112,7 @@ public class MemberRepositoryTest {
 
         memberService.saveMember(member2.getId(), member2.getPassword(), member2.getNickname());
 
+        // nickname failed
         String id3 = "dddd1234";
         String password3 = "!Abc12345";
         String nickname3 = "S";
@@ -123,6 +132,22 @@ public class MemberRepositoryTest {
         int compareSize = memberList2.size() - memberList1.size();
 
         assertThat(compareSize).isEqualTo(0L);
+    }
+
+    @Test
+    @DisplayName("Delete Member 테스트")
+    public void deleteMember(){
+        memberRepo(); // 삭제 테스트를 위한 임시 계정 생성
+        List<Member> memberList1 = memberRepository.findAll();
+        Member member = memberList1.get(0);
+        memberRepository.deleteById(member.getMemberNum());
+
+        List<Member> memberList2 = memberRepository.findAll();
+
+        int compareSize = memberList2.size() - memberList1.size();
+
+        assertThat(compareSize).isEqualTo(-1L);
+        
     }
 
 }
