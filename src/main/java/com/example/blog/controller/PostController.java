@@ -12,9 +12,6 @@ public class PostController {
     @Autowired
     private PostRepository postRepository;
 
-    @Autowired
-    private PostController postController;
-
 
 
 }

@@ -8,7 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Data
@@ -64,6 +66,9 @@ public class Member {
     public void updateLastLoginDate(){
         this.lastLoginDate = LocalDateTime.now();
     } // 로그인 시 로그인 일자 업데이트를 위한 메소드 작성
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private List<Post> posts;
 
     @Builder // Builder 패턴을 만들기 위한 어노테이션
     public Member(String id, String password, String nickname){
