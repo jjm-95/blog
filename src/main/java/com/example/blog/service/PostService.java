@@ -1,7 +1,10 @@
 package com.example.blog.service;
 
 
+import com.example.blog.domain.Member;
+import com.example.blog.domain.MemberRepository;
 import com.example.blog.domain.PostRepository;
+import com.example.blog.dto.PostSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,26 @@ import org.springframework.stereotype.Service;
 public class PostService {
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private MemberRepository memberRepository;
+
+    public void savePost(String title, String content, Long memberNum){
+
+        Member member = memberRepository.findById(memberNum).orElseThrow(() ->
+                new IllegalArgumentException("글 작성 실패: 작성자가 존재하지 않습니다. memberNum is not exist -> " + memberNum));
+
+        String author = member.getNickname();
+        postRepository.save(PostSaveRequestDto.builder()
+                .title(title)
+                .content(content)
+                .member(member)
+                .author(author)
+                .build().toEntity());
+
+        System.out.println("글작성 완료 :"+title+", "+ content + ", "+member.getNickname());
+
+    }
 
 
 

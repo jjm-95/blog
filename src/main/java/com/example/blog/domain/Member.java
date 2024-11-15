@@ -77,4 +77,6 @@ public class Member {
         this.nickname = nickname;
     } // Member Builder
 
+    public void setId(String id) {
+    }
 } // Member

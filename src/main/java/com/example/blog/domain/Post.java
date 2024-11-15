@@ -2,6 +2,7 @@ package com.example.blog.domain;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,12 +26,17 @@ public class Post {
     @Column(columnDefinition = "TEXT", nullable = false)// Text로 정의, null 불허
     private String content;
 
+    @Column(length = 30, nullable = false, unique = true)
+    @Size(min = 2, message = "닉네임은 최소 2자 이상이어야 합니다.")
+    private String author;
+
 
     @Builder // Builder 패턴을 만들기 위한 어노테이션
-    public Post(String title, String content, Member member){
+    public Post(String title, String content, Member member, String author){
         this.title = title;
         this.content = content;
         this.member = member;
+        this.author = author;
     } // Post
 
 
