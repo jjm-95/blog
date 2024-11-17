@@ -16,10 +16,6 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // pk의 생성 규칙
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "memberNum")
-    private Member member;
-
     @Column(length = 500, nullable = false) // 길이는 500, null 불허
     private String title;
     
@@ -30,6 +26,9 @@ public class Post {
     @Size(min = 2, message = "닉네임은 최소 2자 이상이어야 합니다.")
     private String author;
 
+    @ManyToOne
+    @JoinColumn(name = "memberNum")
+    private Member member;
 
     @Builder // Builder 패턴을 만들기 위한 어노테이션
     public Post(String title, String content, Member member, String author){

@@ -8,11 +8,8 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/post}" method="post">
-    <table>
-    </table>
-    <button type="submit">글 작성</button>
-</form>
+<a href="/post">글작성</a>
+
 <a href="/regist">가입하기</a>
 
     <div class="card" th:each= "i : ${members}">

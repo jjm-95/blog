@@ -2,6 +2,7 @@ package com.example.blog.controller;
 
 import com.example.blog.domain.Member;
 import com.example.blog.domain.MemberRepository;
+import com.example.blog.domain.Post;
 import com.example.blog.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

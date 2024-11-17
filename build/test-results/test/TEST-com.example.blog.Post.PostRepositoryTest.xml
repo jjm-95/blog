@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.blog.Post.PostRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-15T06:15:49" hostname="DESKTOP-ESUP8H3" time="1.186">
+<testsuite name="com.example.blog.Post.PostRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-17T02:21:28" hostname="DESKTOP-ESUP8H3" time="1.412">
   <properties/>
-  <testcase name="포스트 불러오기" classname="com.example.blog.Post.PostRepositoryTest" time="1.186"/>
-  <system-out><![CDATA[15:15:40.638 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.blog.Post.PostRepositoryTest]: PostRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-15:15:40.826 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.blog.BlogApplication for test class com.example.blog.Post.PostRepositoryTest
+  <testcase name="Post Delete Test" classname="com.example.blog.Post.PostRepositoryTest" time="1.412"/>
+  <system-out><![CDATA[11:21:19.770 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.blog.Post.PostRepositoryTest]: PostRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:21:19.989 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.blog.BlogApplication for test class com.example.blog.Post.PostRepositoryTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,32 +14,38 @@
 
  :: Spring Boot ::                (v3.3.3)
 
-2024-11-15T15:15:41.438+09:00  INFO 2172 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : Starting PostRepositoryTest using Java 17.0.13 with PID 2172 (started by jjm in C:\Users\jjm\IdeaProjects\study\blog)
-2024-11-15T15:15:41.438+09:00  INFO 2172 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : The following 1 profile is active: "dev"
-2024-11-15T15:15:43.120+09:00  INFO 2172 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-11-15T15:15:43.199+09:00  INFO 2172 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 2 JPA repository interfaces.
-2024-11-15T15:15:44.124+09:00  INFO 2172 --- [blog] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-11-15T15:15:44.234+09:00  INFO 2172 --- [blog] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-11-15T15:15:44.297+09:00  INFO 2172 --- [blog] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-11-15T15:15:44.799+09:00  INFO 2172 --- [blog] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-11-15T15:15:44.830+09:00  INFO 2172 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-11-15T15:15:44.963+09:00  INFO 2172 --- [blog] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test user=SA
-2024-11-15T15:15:44.963+09:00  INFO 2172 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-11-15T15:15:46.749+09:00  INFO 2172 --- [blog] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-17T11:21:20.735+09:00  INFO 40620 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : Starting PostRepositoryTest using Java 17.0.13 with PID 40620 (started by jjm in C:\Users\jjm\IdeaProjects\study\blog)
+2024-11-17T11:21:20.751+09:00  INFO 40620 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : The following 1 profile is active: "dev"
+2024-11-17T11:21:22.558+09:00  INFO 40620 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-17T11:21:22.636+09:00  INFO 40620 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 2 JPA repository interfaces.
+2024-11-17T11:21:23.594+09:00  INFO 40620 --- [blog] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-17T11:21:23.703+09:00  INFO 40620 --- [blog] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-17T11:21:23.766+09:00  INFO 40620 --- [blog] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-17T11:21:24.252+09:00  INFO 40620 --- [blog] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-17T11:21:24.299+09:00  INFO 40620 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-17T11:21:24.487+09:00  INFO 40620 --- [blog] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test user=SA
+2024-11-17T11:21:24.487+09:00  INFO 40620 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-17T11:21:26.012+09:00  INFO 40620 --- [blog] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: alter table if exists post alter column content set data type TEXT
-2024-11-15T15:15:46.843+09:00  INFO 2172 --- [blog] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-11-15T15:15:47.644+09:00  WARN 2172 --- [blog] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-11-15T15:15:48.894+09:00  INFO 2172 --- [blog] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test'
-2024-11-15T15:15:49.035+09:00  INFO 2172 --- [blog] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2024-11-15T15:15:49.145+09:00  INFO 2172 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : Started PostRepositoryTest in 8.068 seconds (process running for 9.666)
-Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
-Hibernate: insert into post (content,member_num,title,id) values (?,?,?,default)
-Hibernate: select p1_0.id,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
-Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
-com.example.blog.domain.Post@5b8e2ea7
-Hibernate: select p1_0.id,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
-Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
+2024-11-17T11:21:26.099+09:00  INFO 40620 --- [blog] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17T11:21:26.915+09:00  WARN 40620 --- [blog] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-17T11:21:28.235+09:00  INFO 40620 --- [blog] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test'
+2024-11-17T11:21:28.335+09:00  INFO 40620 --- [blog] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-11-17T11:21:28.454+09:00  INFO 40620 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : Started PostRepositoryTest in 8.213 seconds (process running for 10.537)
+Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
+Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
+Hibernate: insert into post (author,content,member_num,title,id) values (?,?,?,?,default)
+글작성 완료 :테스트 게시글, 테스트 본문, dd89vj
+Hibernate: select p1_0.id,p1_0.author,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
+Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
+class com.example.blog.domain.Post
+Hibernate: select p1_0.id,p1_0.author,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
+Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
+Hibernate: select p1_0.id,p1_0.author,p1_0.content,m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.title from post p1_0 left join member m1_0 on m1_0.member_num=p1_0.member_num where p1_0.id=?
+Hibernate: select p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from post p1_0 where p1_0.member_num=?
 Hibernate: delete from post where id=?
+Hibernate: select p1_0.id,p1_0.author,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
+Hibernate: select p1_0.id,p1_0.author,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
