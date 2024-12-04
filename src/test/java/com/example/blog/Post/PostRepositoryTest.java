@@ -40,7 +40,7 @@ public class PostRepositoryTest {
         String content = "테스트 본문";
         Long memberNum = 2L;
         Member member = memberRepository.findById(memberNum).orElseThrow(() ->
-                new IllegalArgumentException("댓글 쓰기 실패: 해당 게시글이 존재 하지 않음" + memberNum));
+                new IllegalArgumentException("글 쓰기 실패: 해당 회원이 존재 하지 않음" + memberNum));
 
         postRepository.save(Post.builder()
                 .title(title)

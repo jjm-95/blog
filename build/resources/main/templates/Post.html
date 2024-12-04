@@ -11,20 +11,29 @@
     <div>
         <form th:action="@{/post}" th:object="${post}" method="post">
             <table>
+
                 <tr>
                     <td>제목</td>
-                    <td><input type="text" th:field="*{title}"></td>
+                    <td><input type="text" th:field="*{title}"/></td>
                 </tr>
+
                 <tr>
                     <td>내용</td>
-                    <td><input type="password" th:field="*{content}"></td>
-                </tr>
-                <tr>
-                    <td>회원번호</td>
-                    <td><input type="text" th:field="*{memberNum}"></td>
+                    <td><input type="text" th:field="*{content}"/></td>
                 </tr>
 
             </table>
+
+            <form th:action="@{/post}" th:object="${member}" method="post">
+                <table>
+
+                    <tr>
+                        <td>멤바</td>
+                        <td><input type="text" th:field="*{memberNum}"/></td>
+                    </tr>
+
+                </table>
+
             <button type="submit">등록</button>
         </form>
     </div>

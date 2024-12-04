@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Log4j2
 @RequiredArgsConstructor
 @Controller
@@ -24,12 +28,29 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @GetMapping("/post")
-    String post_write(Model model, Post post){
-        model.addAttribute("post", post);
-        log.trace("post_write invoked.");
-        return "Post.html";
+    @GetMapping("/Main")
+    public String showPostList(Model model) {
+        List<Post> postList = postService.getPosts();
+
+        if (postList == null) {
+            postList = new ArrayList<>(); // null 방지
+        }
+
+        List<Post> sortedPosts = postList.stream().sorted((a, b) -> b.getId().compareTo(a.getId())) // id 내림차순
+                .toList();
+        model.addAttribute("postList",sortedPosts);
+
+        return "Main"; // 템플릿 이름
     }
+
+    @GetMapping("/post")
+    public String showPostForm(Model model) {
+        model.addAttribute("post", new Post()); // Post 객체를 추가
+        model.addAttribute("member", new Member());
+
+        return "Post"; // 템플릿 이름
+    }
+
 
     @PostMapping("/post")
     String addPost(@RequestParam("title") String title,

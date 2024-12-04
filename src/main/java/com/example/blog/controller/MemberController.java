@@ -3,7 +3,9 @@ package com.example.blog.controller;
 import com.example.blog.domain.Member;
 import com.example.blog.domain.MemberRepository;
 import com.example.blog.domain.Post;
+import com.example.blog.domain.PostRepository;
 import com.example.blog.service.MemberService;
+import com.example.blog.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -22,14 +25,21 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-    @GetMapping("/Main")
+    @Autowired
+    private PostRepository postRepository;
+
+    @Autowired
+    private PostService postService;
+
+    @GetMapping("/memberList")
     public String memberList(Model model){
         List<Member> memberList = memberRepository.findAll();
 
         model.addAttribute("members",memberList);
 
-        return "Main.html";
+        return "MemberList";
     }
+
 
     @GetMapping("/regist")
     public String registMember(Model model, Member member) {

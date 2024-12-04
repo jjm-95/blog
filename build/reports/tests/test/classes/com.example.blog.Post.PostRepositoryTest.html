@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">1</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.412s</div>
+<div class="counter">1.513s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,13 +61,37 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard output</a>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="postLoad()"></a>
+<h3 class="failures">포스트 불러오기</h3>
+<span class="code">
+<pre>org.opentest4j.AssertionFailedError: 
+expected: &quot;테스트 게시글&quot;
+ but was: &quot;김진은 FuckUpMe&quot;
+	at java.base@17.0.13/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base@17.0.13/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base@17.0.13/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base@17.0.13/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at app//com.example.blog.Post.PostRepositoryTest.postLoad(PostRepositoryTest.java:76)
+	at java.base@17.0.13/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base@17.0.13/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.13/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -79,18 +103,18 @@
 </tr>
 </thead>
 <tr>
-<td class="success">Post Delete Test</td>
-<td class="success">postDelete()</td>
-<td class="success">1.412s</td>
-<td class="success">passed</td>
+<td class="failures">포스트 불러오기</td>
+<td class="failures">postLoad()</td>
+<td class="failures">1.513s</td>
+<td class="failures">failed</td>
 </tr>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>11:21:19.770 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.blog.Post.PostRepositoryTest]: PostRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-11:21:19.989 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.blog.BlogApplication for test class com.example.blog.Post.PostRepositoryTest
+<pre>15:26:00.461 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.blog.Post.PostRepositoryTest]: PostRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:26:00.733 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.blog.BlogApplication for test class com.example.blog.Post.PostRepositoryTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -101,38 +125,57 @@
 
  :: Spring Boot ::                (v3.3.3)
 
-2024-11-17T11:21:20.735+09:00  INFO 40620 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : Starting PostRepositoryTest using Java 17.0.13 with PID 40620 (started by jjm in C:\Users\jjm\IdeaProjects\study\blog)
-2024-11-17T11:21:20.751+09:00  INFO 40620 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : The following 1 profile is active: &quot;dev&quot;
-2024-11-17T11:21:22.558+09:00  INFO 40620 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-11-17T11:21:22.636+09:00  INFO 40620 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 2 JPA repository interfaces.
-2024-11-17T11:21:23.594+09:00  INFO 40620 --- [blog] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-11-17T11:21:23.703+09:00  INFO 40620 --- [blog] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-11-17T11:21:23.766+09:00  INFO 40620 --- [blog] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-11-17T11:21:24.252+09:00  INFO 40620 --- [blog] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-11-17T11:21:24.299+09:00  INFO 40620 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-11-17T11:21:24.487+09:00  INFO 40620 --- [blog] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test user=SA
-2024-11-17T11:21:24.487+09:00  INFO 40620 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-11-17T11:21:26.012+09:00  INFO 40620 --- [blog] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-04T15:26:01.602+09:00  INFO 18628 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : Starting PostRepositoryTest using Java 17.0.13 with PID 18628 (started by jjm in C:\Users\jjm\IdeaProjects\study\blog)
+2024-12-04T15:26:01.604+09:00  INFO 18628 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : The following 1 profile is active: &quot;dev&quot;
+2024-12-04T15:26:04.224+09:00  INFO 18628 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-04T15:26:04.402+09:00  INFO 18628 --- [blog] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 144 ms. Found 3 JPA repository interfaces.
+2024-12-04T15:26:05.832+09:00  INFO 18628 --- [blog] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-04T15:26:06.020+09:00  INFO 18628 --- [blog] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-04T15:26:06.118+09:00  INFO 18628 --- [blog] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-04T15:26:06.669+09:00  INFO 18628 --- [blog] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-04T15:26:06.720+09:00  INFO 18628 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-04T15:26:06.926+09:00  INFO 18628 --- [blog] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test user=SA
+2024-12-04T15:26:06.930+09:00  INFO 18628 --- [blog] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-04T15:26:08.468+09:00  INFO 18628 --- [blog] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-04T15:26:08.526+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : alter table if exists post alter column content set data type TEXT
 Hibernate: alter table if exists post alter column content set data type TEXT
-2024-11-17T11:21:26.099+09:00  INFO 40620 --- [blog] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-11-17T11:21:26.915+09:00  WARN 40620 --- [blog] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-11-17T11:21:28.235+09:00  INFO 40620 --- [blog] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test'
-2024-11-17T11:21:28.335+09:00  INFO 40620 --- [blog] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2024-11-17T11:21:28.454+09:00  INFO 40620 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : Started PostRepositoryTest in 8.213 seconds (process running for 10.537)
-Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
-Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
-Hibernate: insert into post (author,content,member_num,title,id) values (?,?,?,?,default)
-글작성 완료 :테스트 게시글, 테스트 본문, dd89vj
-Hibernate: select p1_0.id,p1_0.author,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
-Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
-class com.example.blog.domain.Post
-Hibernate: select p1_0.id,p1_0.author,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
-Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num where m1_0.member_num=?
-Hibernate: select p1_0.id,p1_0.author,p1_0.content,m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.title from post p1_0 left join member m1_0 on m1_0.member_num=p1_0.member_num where p1_0.id=?
-Hibernate: select p1_0.member_num,p1_0.id,p1_0.author,p1_0.content,p1_0.title from post p1_0 where p1_0.member_num=?
+2024-12-04T15:26:08.552+09:00  INFO 18628 --- [blog] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-04T15:26:09.483+09:00  WARN 18628 --- [blog] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-04T15:26:11.007+09:00  INFO 18628 --- [blog] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:tcp://localhost/C:/Users/jjm/IdeaProjects/study/blog/H2/data/test'
+2024-12-04T15:26:11.118+09:00  INFO 18628 --- [blog] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-12-04T15:26:11.286+09:00  INFO 18628 --- [blog] [    Test worker] c.example.blog.Post.PostRepositoryTest   : Started PostRepositoryTest in 10.176 seconds (process running for 12.838)
+2024-12-04T15:26:12.389+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,c1_0.category_id,m2_0.member_num,m2_0.id,m2_0.last_login_date,m2_0.name,m2_0.nickname,m2_0.password,m2_0.phone_num,m2_0.regist_date,c1_0.name,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num left join category c1_0 on c1_0.category_id=p1_0.category_num left join member m2_0 on m2_0.member_num=c1_0.member_num where m1_0.member_num=?
+Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,c1_0.category_id,m2_0.member_num,m2_0.id,m2_0.last_login_date,m2_0.name,m2_0.nickname,m2_0.password,m2_0.phone_num,m2_0.regist_date,c1_0.name,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num left join category c1_0 on c1_0.category_id=p1_0.category_num left join member m2_0 on m2_0.member_num=c1_0.member_num where m1_0.member_num=?
+2024-12-04T15:26:12.512+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : insert into post (author,category_num,content,member_num,title,id) values (?,?,?,?,?,default)
+Hibernate: insert into post (author,category_num,content,member_num,title,id) values (?,?,?,?,?,default)
+2024-12-04T15:26:12.703+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : select p1_0.id,p1_0.author,p1_0.category_num,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
+Hibernate: select p1_0.id,p1_0.author,p1_0.category_num,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
+2024-12-04T15:26:12.707+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,c1_0.category_id,m2_0.member_num,m2_0.id,m2_0.last_login_date,m2_0.name,m2_0.nickname,m2_0.password,m2_0.phone_num,m2_0.regist_date,c1_0.name,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num left join category c1_0 on c1_0.category_id=p1_0.category_num left join member m2_0 on m2_0.member_num=c1_0.member_num where m1_0.member_num=?
+Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,c1_0.category_id,m2_0.member_num,m2_0.id,m2_0.last_login_date,m2_0.name,m2_0.nickname,m2_0.password,m2_0.phone_num,m2_0.regist_date,c1_0.name,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num left join category c1_0 on c1_0.category_id=p1_0.category_num left join member m2_0 on m2_0.member_num=c1_0.member_num where m1_0.member_num=?
+2024-12-04T15:26:12.820+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : select p1_0.id,p1_0.author,p1_0.category_num,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
+Hibernate: select p1_0.id,p1_0.author,p1_0.category_num,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
+2024-12-04T15:26:12.823+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,c1_0.category_id,m2_0.member_num,m2_0.id,m2_0.last_login_date,m2_0.name,m2_0.nickname,m2_0.password,m2_0.phone_num,m2_0.regist_date,c1_0.name,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num left join category c1_0 on c1_0.category_id=p1_0.category_num left join member m2_0 on m2_0.member_num=c1_0.member_num where m1_0.member_num=?
+Hibernate: select m1_0.member_num,m1_0.id,m1_0.last_login_date,m1_0.name,m1_0.nickname,m1_0.password,m1_0.phone_num,m1_0.regist_date,p1_0.member_num,p1_0.id,p1_0.author,c1_0.category_id,m2_0.member_num,m2_0.id,m2_0.last_login_date,m2_0.name,m2_0.nickname,m2_0.password,m2_0.phone_num,m2_0.regist_date,c1_0.name,p1_0.content,p1_0.title from member m1_0 left join post p1_0 on m1_0.member_num=p1_0.member_num left join category c1_0 on c1_0.category_id=p1_0.category_num left join member m2_0 on m2_0.member_num=c1_0.member_num where m1_0.member_num=?
+2024-12-04T15:26:12.847+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
 Hibernate: delete from post where id=?
-Hibernate: select p1_0.id,p1_0.author,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
-Hibernate: select p1_0.id,p1_0.author,p1_0.content,p1_0.member_num,p1_0.title from post p1_0
+2024-12-04T15:26:12.851+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
+Hibernate: delete from post where id=?
+2024-12-04T15:26:12.854+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
+Hibernate: delete from post where id=?
+2024-12-04T15:26:12.855+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
+Hibernate: delete from post where id=?
+2024-12-04T15:26:12.859+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
+Hibernate: delete from post where id=?
+2024-12-04T15:26:12.862+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
+Hibernate: delete from post where id=?
+2024-12-04T15:26:12.864+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
+Hibernate: delete from post where id=?
+2024-12-04T15:26:12.867+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
+Hibernate: delete from post where id=?
+2024-12-04T15:26:12.871+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
+Hibernate: delete from post where id=?
+2024-12-04T15:26:12.875+09:00 DEBUG 18628 --- [blog] [    Test worker] org.hibernate.SQL                        : delete from post where id=?
+Hibernate: delete from post where id=?
 </pre>
 </span>
 </div>
@@ -144,7 +187,7 @@ Hibernate: select p1_0.id,p1_0.author,p1_0.content,p1_0.member_num,p1_0.title fr
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10.1</a> at 2024. 11. 17. 오전 11:21:30</p>
+<a href="http://www.gradle.org">Gradle 8.10.1</a> at 2024. 12. 4. 오후 3:26:13</p>
 </div>
 </div>
 </body>

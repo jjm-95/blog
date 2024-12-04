@@ -30,6 +30,10 @@ public class Post {
     @JoinColumn(name = "memberNum")
     private Member member;
 
+    @ManyToOne
+    @JoinColumn(name = "categoryNum")
+    private Category category;
+
     @Builder // Builder 패턴을 만들기 위한 어노테이션
     public Post(String title, String content, Member member, String author){
         this.title = title;
@@ -38,5 +42,13 @@ public class Post {
         this.author = author;
     } // Post
 
+    @Builder // Builder 패턴을 만들기 위한 어노테이션
+    public Post(String title, String content, Member member, String author, Category category){
+        this.title = title;
+        this.content = content;
+        this.member = member;
+        this.author = author;
+        this.category = category;
+    } // Post
 
 }
